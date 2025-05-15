@@ -150,7 +150,7 @@ Para poder identificar los picos R los cuales representan los máximos de la des
 ![alt](ECG_Picos.png)
 Figura 4. Señal ECG con los picos detectados
 
-Posteriormente, se realizan los intervalos RR y se hacen conversiones de estos picos a tiempo para calcular los tiempos de duchos intervalos para poder llegar a una conclusión de ritmos cardiacos. Esto se hace por medio de las siguientes lineas de codigo y su grafica resultante es mostrada en la figura 5.
+Posteriormente, se realizan los intervalos RR y se hacen conversiones de estos picos a tiempo para calcular los tiempos de dichos intervalos para poder llegar a una conclusión de ritmos cardiacos. Esto se hace por medio de las siguientes lineas de codigo y su grafica resultante es mostrada en la figura 5.
 
     if len(peaks_indices) > 1:
         rr_intervals_samples = np.diff(peaks_indices)
@@ -166,6 +166,12 @@ Posteriormente, se realizan los intervalos RR y se hacen conversiones de estos p
             plt.grid(True)
             plt.show()
     
+![alt](IntervalosRR.png)
+Figura 5. Resultado del trazado de los intervalos R-R
+
+### d) Análisis de la HRV en el dominio del tiempo 
+Puesto que ya se tienen los valores de los intervalos R-R en tiempo, se procede a hacer cálculos básicos de la media o promedio y la desviación estándar de estas por medio de las funciones "mean()" y "std()".
+
         mean_rr = np.mean(rr_intervals_sec)
         sdnn = np.std(rr_intervals_sec)
     
@@ -176,11 +182,6 @@ Posteriormente, se realizan los intervalos RR y se hacen conversiones de estos p
         Intervalo R-R Promedio : 807.34 ms
         Desviación Estándar de Intervalos RR : 196.54 ms
 
-![alt](IntervalosRR.png)
-Figura 5. Resultado del trazado de los intervalos R-R
-
-
-### d) Análisis de la HRV en el dominio del tiempo 
 ### e) Aplicación de transformada Wavelet
 
 ## Instrucciones
