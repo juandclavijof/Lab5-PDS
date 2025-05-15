@@ -1,6 +1,7 @@
 # Variabilidad de la Frecuencia Cardiaca usando la Transformada Wavelet 
 
 ## Descripción
+Con el objetivo de analizar las fluctuaciones en la frecuencia cardíaca (HRV) mediante herramientas del procesamiento digital de señales,  se realizó un experimento  práctico para adquirir una señal ECG de un paciente en reposo, posterior se filtró digitalmente y se extrageron los intervalos R-R, para luego calcular parámetros estadísticos en el dominio del tiempo, por último, se aplicó la transformada wavelet para generar un espectrograma que permitió visualizar la evolución de las componentes de baja y alta frecuencia de la HRV a lo largo del tiempo. Este análisis busca establecer relaciones entre la dinámica de la señal cardíaca y la actividad simpática o parasimpática del sistema nervioso autónomo.
 
 ## Desarrollo
 ### a) Fundamento Teórico
