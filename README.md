@@ -55,6 +55,27 @@ Figura 1. Diagrama de flujo del proceso del laboratorio.
 ### b) Adquisición de la señal ECG 
 Para la adquisición de la señal electrocardiográfica se hizo uso del modulo AD8232 ya que viene con filtros electronicos incorporados facilitando en mayor medida la adquisición de la señal, se usaron también sus resopectivos electrodos y cables de JAC además del microcontrolador "DAQ" en donde se capturan en reposo por cinco minutos y luego se visualizan primeramente la señal análoga obtenida para ya posteriormente se guardarse en un excel el cuál tiene como nombre "ECG_8.csv" y se encuentra en el repositorio. 
 En la figura 2 a continuación se muestra la señal electrocardiografica obtenida por medio de la siguiente linea de codigo de python.
+
+    file_path = "DATA_ECG\ECG_6.csv"
+    df = pd.read_csv(file_path)
+    tiempo = df.iloc[:, 0].values
+    voltaje = df.iloc[:, 1].values
+    
+    fs_estimates = 1 / np.diff(tiempo)
+    fs_mean = np.nanmedian(fs_estimates)
+    print(f"Frecuencia de muestreo estimada es de: {fs_mean:.2f} Hz")
+    
+    fs = fs_mean
+    
+    # Señal original
+    plt.figure(figsize=(15, 4))
+    plt.plot(tiempo, voltaje, label="Señal ECG Original", color="r")
+    plt.xlabel("Tiempo (s)")
+    plt.ylabel("Voltaje (v) ")
+    plt.title("Señal ECG Original")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 ![alt](ECG_Original.png)
 Figura 2. Señal del electrocardiograma.
 
