@@ -228,7 +228,9 @@ Por último, se realizó el cálculo de de la señal en cada instante y frecuenc
 - Modulo ECG con sus electrodos y cables JAC.
 - Microcontrolador DAQ.
 ## Referencias
-
+[1] Acharya, U. R., et al. (2006). Heart rate variability: a review. Medical & Biological Engineering & Computing, 44(12), 1031–1051.
+[2] Berntson, G. G., et al. (1997). The autonomic nervous system and cardiac variability: Implications for behavioral and biomedical research. Psychophysiology, 34(6), 623–648.
+[3] Shaffer, F., & Ginsberg, J. P. (2017). An Overview of Heart Rate Variability Metrics and Norms. Frontiers in Public Health, 5, 258.
 ## AUTORES
 - Juan Diego Clavijo Fuentes
   est.juan.dclavijjo@unimilitar.edu.co
