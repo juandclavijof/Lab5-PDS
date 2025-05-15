@@ -157,9 +157,17 @@ Figura 4. Señal ECG con los picos detectados
 ### e) Aplicación de transformada Wavelet
 
 ## Instrucciones
+1) En primer lugar descargar o copiar y pegar el código de Python subido en este repositorio, el cuál esta guardado como "lab5.py", en el compilador que desee. Cabe recalcar que debe asegurarse que se encuentren las librerias enlistadas en los requerimientos para que pueda compilarse adecuadamente el programa y muestre tanto las gráficas deseadas como los resultados de los cálculos. En el caso de querer tomar su propio electrocardiograma, tomar los datos de la manera que se describió en el desarrollo y guardar los respectivos datos en un excel y cambiar el nombre en el "file_path".
 
+2) Descargar los archivos que contienen los datos de la señal electromiográfica incluidos también en el presente repositorio con el nombre de “ECG_6.csv”. Se aconseja que se guarden los archivos de este inciso y el anterior en la misma carpeta para su fácil acceso y compilación.
+
+3) Correr el programa, esperar a que se compile por completo y si todo está en orden, se verán los resultados en el terminal de comandos de la manera que se muestra en la siguiente figura y las respectivas gráficas, las cuales se abriran de manera progresiva.
+   
 ## Requerimientos
-
+- Python 3.11.
+- Librerias como: wfdb, matplotlib, numpy, scipy.signal, pywt, pandas.
+- Modulo ECG con sus electrodos y cables JAC.
+- Microcontrolador DAQ.
 ## Referencias
 
 ## AUTORES
