@@ -51,8 +51,9 @@ Aplicación en HRV:
 5. Diagrama de Flujo del Experimento  
 ![alt](DiagramaDeFlujo.png)
 
-
 ### b) Adquisición de la señal ECG  
+Para la adquisición de la señal electrocardiográfica se hizo uso del modulo AD8232 ya que viene con filtros electronicos incorporados facilitando en mayor medida la adquisición de la señal, se usaron también sus resopectivos electrodos y cables de JAC además del microcontrolador "DAQ" en donde se visualiza primeramente la señal análoga obtenida y posteriormente se guardan en un excel el cuál tiene como nombre "ECG_8.csv" y se encuentra en el repositorio. 
+
 ### c) Pre-procesamiento de la señal 
 ### d) Análisis de la HRV en el dominio del tiempo 
 ### e) Aplicación de transformada Wavelet
