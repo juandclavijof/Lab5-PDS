@@ -184,12 +184,33 @@ Puesto que ya se tienen los valores de los intervalos R-R en tiempo, se procede 
         Desviación Estándar de Intervalos RR : 196.54 ms
 
 ### e) Aplicación de transformada Wavelet
+Una wavelet es una función matemática que tiene duración finita, es oscilatoria y se localiza tanto en el tiempo como en la frecuencia; cabe recalcar que a diferencia del seno/coseno de la transformada de Fourier, la wavelet se "apaga" fuera de una región breve, de esta manera es útil para detectar cambios transitorios.
 
      time_uniform = np.arange(rr_times_sec[0], rr_times_sec[-1], 1/target_fs_rr)
      rr_interpolated = np.interp(time_uniform, rr_times_sec, rr_intervals_sec)
+
 Con el anterior fragmento de código damos inicio al último ítem del laboratorio, con este se genera una serie de tiempos con una frecuencia deseada, interpolando de esta manera la señal que nos interesa, es decir los intervalos R-R a un nuevo tiempo con la función "rr_interpolated", cumpliendo así la característica de la transformada wavelet, la cual es que la señal es muestreada uniformemente. 
 
+     wavelet_name = 'cmor1.5-1.0'
+     min_freq = 0.03
+     max_freq = 0.5
+     total_scales = 128
+En la transformada wavelet, la escala es un parámetro que controla cuánto se estira o comprime la wavelet madre para analizar la señal. Una escala pequeña corresponde a una wavelet comprimida, sensible a frecuencias altas, mientras que una escala grande corresponde a una wavelet estirada, sensible a frecuencias bajas (variaciones lentas). La relación entre escala y frecuencia depende del tipo de wavelet utilizada y se puede calcular mediante la función scale2frequency de PyWavelets, que asocia cada escala a su frecuencia efectiva. 
 
+La función "min_freq" y "maz_freq" destaca el rango de frecuencias que se desea analizar, determinando luego el número de escalas que se desea interpretar, teniendo en cuenta que a mayor número de escalas, mejor resolución de la frecuencia. 
+     scales = np.geomspace(
+         pywt.scale2frequency(wavelet_name, 1) / max_freq,
+         pywt.scale2frequency(wavelet_name, 1) / min_freq,
+         num=total_scales
+     ) * target_fs_rr
+Se usa la función "pywt.scale2frequency() para convertir frecuencias a escalas wavelet que fueron explicadas anteiormente, por su parte "np.geomspace" genera una secuencia logarítmica de escalas entre las asociadas a max_freq y min_freq.
+
+     power = np.abs(coefficients)**2
+     plt.pcolormesh(time_uniform, frequencies, power, shading='gouraud', 
+     cmap='viridis')
+Por último, se realizó el cálculo de de la señal en cada instante y frecuencia, implementando ∣𝑊(𝑡,𝑓)∣2, generando de esta manera una gráfica que evalúa el tiempo vs la frecuencia representando así la potencia. 
+
+ 
 ## Instrucciones
 1) En primer lugar descargar o copiar y pegar el código de Python subido en este repositorio, el cuál esta guardado como "lab5.py", en el compilador que desee. Cabe recalcar que debe asegurarse que se encuentren las librerias enlistadas en los requerimientos para que pueda compilarse adecuadamente el programa y muestre tanto las gráficas deseadas como los resultados de los cálculos. En el caso de querer tomar su propio electrocardiograma, tomar los datos de la manera que se describió en el desarrollo y guardar los respectivos datos en un excel y cambiar el nombre en el "file_path".
 
