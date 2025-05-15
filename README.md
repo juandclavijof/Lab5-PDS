@@ -119,7 +119,36 @@ Adicionalmente, se gráfica la señal filtrada en la figura 3 por medio de las s
 ![alt](ECG_Filtrada.png)
 Figura 3. Señal del ECG filtrada por medio de los filtros IIR
 
+Para poder identificar los picos R los cuales representan los máximos de la despolarización ventricular y son importantes para los calculos del ritmo cardiaco y los intervalos R-R, se hace principalmente por la función "find_peaks()" y se vizualiza por la función "plot()" como se muestra en las siguientes lineas del código junto con la figura 4 con el ECG y sus respectivos picos.
+
+    min_hr_bpm = 40
+    max_hr_bpm = 180
+    min_distance_sec = 60.0 / max_hr_bpm
+    min_distance_samples = int(min_distance_sec * fs)
+    if min_distance_samples < 1:
+        min_distance_samples = 1
+    
+    peak_height_threshold = np.mean(ecg_filtered) + 0.6 * np.std(ecg_filtered)
+    if peak_height_threshold < np.percentile(ecg_filtered, 75):
+        peak_height_threshold = np.percentile(ecg_filtered, 75)
+    
+    print(f"Detectando picos R con altura > {peak_height_threshold:.3f} y distancia mínima > {min_distance_samples} muestras")
+    
+    peaks_indices, properties = find_peaks(ecg_filtered, height=peak_height_threshold, distance=min_distance_samples)
+    print(f"Número de picos R detectados: {len(peaks_indices)}")
+    
+    plt.figure(figsize=(15, 4))
+    plt.plot(tiempo, ecg_filtered, label='ECG Filtrada')
+    plt.plot(tiempo[peaks_indices], ecg_filtered[peaks_indices], 'ro', label='Picos R Detectados')
+    plt.title('Detección de Picos R')
+    plt.xlabel('Tiempo (s)')
+    plt.ylabel('Voltaje (V)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
 ![alt](ECG_Picos.png)
+Figura 4. Señal ECG con los picos detectados
 ![alt](IntervalosRR.png)
 ![alt](Interpolada.png)
 
