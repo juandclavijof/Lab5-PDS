@@ -177,7 +177,7 @@ Posteriormente, se realizan los intervalos RR y se hacen conversiones de estos p
         Desviación Estándar de Intervalos RR : 196.54 ms
 
 ![alt](IntervalosRR.png)
-Figura 4. Resultado del trazado de los intervalos R-R
+Figura 5. Resultado del trazado de los intervalos R-R
 
 
 ### d) Análisis de la HRV en el dominio del tiempo 
