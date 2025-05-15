@@ -149,6 +149,8 @@ Para poder identificar los picos R los cuales representan los máximos de la des
 
 ![alt](ECG_Picos.png)
 Figura 4. Señal ECG con los picos detectados
+
+Posteriormente 
 ![alt](IntervalosRR.png)
 ![alt](Interpolada.png)
 
@@ -162,7 +164,9 @@ Figura 4. Señal ECG con los picos detectados
 2) Descargar los archivos que contienen los datos de la señal electromiográfica incluidos también en el presente repositorio con el nombre de “ECG_6.csv”. Se aconseja que se guarden los archivos de este inciso y el anterior en la misma carpeta para su fácil acceso y compilación.
 
 3) Correr el programa, esperar a que se compile por completo y si todo está en orden, se verán los resultados en el terminal de comandos de la manera que se muestra en la siguiente figura y las respectivas gráficas, las cuales se abriran de manera progresiva.
-   
+
+![alt]()
+
 ## Requerimientos
 - Python 3.11.
 - Librerias como: wfdb, matplotlib, numpy, scipy.signal, pywt, pandas.
