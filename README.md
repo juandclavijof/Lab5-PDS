@@ -59,6 +59,11 @@ En la figura 2 a continuación se muestra la señal electrocardiografica obtenid
 Figura 2. Señal del electrocardiograma.
 
 ### c) Pre-procesamiento de la señal 
+![alt](ECG_Filtrada.png)
+![alt](ECG_Picos.png)
+![alt](IntervalosRR.png)
+![alt](Interpolada.png)
+
 
 ### d) Análisis de la HRV en el dominio del tiempo 
 ### e) Aplicación de transformada Wavelet
