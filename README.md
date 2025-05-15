@@ -209,7 +209,7 @@ Se usa la función "pywt.scale2frequency() para convertir frecuencias a escalas 
      plt.pcolormesh(time_uniform, frequencies, power, shading='gouraud', 
      cmap='viridis')
 Por último, se realizó el cálculo de de la señal en cada instante y frecuencia, implementando ∣𝑊(𝑡,𝑓)∣2, generando de esta manera una gráfica que evalúa el tiempo vs la frecuencia representando así la potencia. 
-
+![alt](Espectograma.png)
  
 ## Instrucciones
 1) En primer lugar descargar o copiar y pegar el código de Python subido en este repositorio, el cuál esta guardado como "lab5.py", en el compilador que desee. Cabe recalcar que debe asegurarse que se encuentren las librerias enlistadas en los requerimientos para que pueda compilarse adecuadamente el programa y muestre tanto las gráficas deseadas como los resultados de los cálculos. En el caso de querer tomar su propio electrocardiograma, tomar los datos de la manera que se describió en el desarrollo y guardar los respectivos datos en un excel y cambiar el nombre en el "file_path".
