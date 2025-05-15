@@ -1,14 +1,14 @@
 # Lab5-PDS
 
-##Descripción
+## Descripción
 
-##Desarrollo
+## Desarrollo
 
-##Instrucciones
+## Instrucciones
 
-##Requerimientos
+## Requerimientos
 
-##Referencias
+## Referencias
 
 ## AUTORES
 - Juan Diego Clavijo Fuentes
