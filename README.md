@@ -50,6 +50,7 @@ Aplicación en HRV:
 - Detecta transiciones entre estados simpático/parasimpático.   
 5. Diagrama de Flujo del Experimento  
 ![alt](DiagramaDeFlujo.png)
+
 Figura 1. Diagrama de flujo del proceso del laboratorio.
 
 ### b) Adquisición de la señal ECG 
@@ -183,6 +184,11 @@ Puesto que ya se tienen los valores de los intervalos R-R en tiempo, se procede 
         Desviación Estándar de Intervalos RR : 196.54 ms
 
 ### e) Aplicación de transformada Wavelet
+
+     time_uniform = np.arange(rr_times_sec[0], rr_times_sec[-1], 1/target_fs_rr)
+     rr_interpolated = np.interp(time_uniform, rr_times_sec, rr_intervals_sec)
+Con el anterior fragmento de código damos inicio al último ítem del laboratorio, con este se genera una serie de tiempos con una frecuencia deseada, interpolando de esta manera la señal que nos interesa, es decir los intervalos R-R a un nuevo tiempo con la función "rr_interpolated", cumpliendo así la característica de la transformada wavelet, la cual es que la señal es muestreada uniformemente. 
+
 
 ## Instrucciones
 1) En primer lugar descargar o copiar y pegar el código de Python subido en este repositorio, el cuál esta guardado como "lab5.py", en el compilador que desee. Cabe recalcar que debe asegurarse que se encuentren las librerias enlistadas en los requerimientos para que pueda compilarse adecuadamente el programa y muestre tanto las gráficas deseadas como los resultados de los cálculos. En el caso de querer tomar su propio electrocardiograma, tomar los datos de la manera que se describió en el desarrollo y guardar los respectivos datos en un excel y cambiar el nombre en el "file_path".
