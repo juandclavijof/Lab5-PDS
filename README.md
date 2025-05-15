@@ -105,7 +105,20 @@ Una vez obtenida la señal y gráficada, se procede a aplicar filtros digitales 
     ecg_filtered = filtfilt(b_lp, a_lp, ecg_filtered_hp)
     print(f"Aplicado Filtro Pasa-Bajos de {highcut:.2f} Hz")
 
+Adicionalmente, se gráfica la señal filtrada en la figura 3 por medio de las siguiente lineas de codigo.
+
+    plt.figure(figsize=(15, 4))
+    plt.plot(tiempo, ecg_filtered, label="Señal ECG Filtrada", color="g")
+    plt.xlabel("Tiempo (s)")
+    plt.ylabel("Voltaje (V)")
+    plt.title("Señal ECG Filtrada")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
 ![alt](ECG_Filtrada.png)
+Figura 3. Señal del ECG filtrada por medio de los filtros IIR
+
 ![alt](ECG_Picos.png)
 ![alt](IntervalosRR.png)
 ![alt](Interpolada.png)
