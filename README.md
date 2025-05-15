@@ -165,7 +165,7 @@ Posteriormente
 
 3) Correr el programa, esperar a que se compile por completo y si todo está en orden, se verán los resultados en el terminal de comandos de la manera que se muestra en la siguiente figura y las respectivas gráficas, las cuales se abriran de manera progresiva.
 
-![alt]()
+![alt](comman_window.png)
 
 ## Requerimientos
 - Python 3.11.
