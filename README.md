@@ -80,6 +80,31 @@ En la figura 2 a continuación se muestra la señal electrocardiografica obtenid
 Figura 2. Señal del electrocardiograma.
 
 ### c) Pre-procesamiento de la señal 
+Una vez obtenida la señal y gráficada, se procede a aplicar filtros digitales a la señal, especificamente los filtro IIR con respuesta butterworth debido a su respuesta contante en banda pasante. Normalmente la señal electrocardiografica se puede ver afectada por ruidos de baja frecuencia (siendo producidas por movimientos o respiración a la toma de la señal) por debajo de los 0.5 Hz y ruidos de alta frecuencia (siendo producidas por cosas como la interferencia eléctrica y los EMG cerca a la zona) por encima de 40 Hz; por lo tanto se implementa un pasa altos con frecuencia de corte en los 0.5Hz y un pasa bajos con frecuencia de corte en los 40Hz. Estos filtros son de orden 5 y son aplicados normalizados por medio de las funciones de python "butter()" y "filtfilt()" como se muestra en las lineas de codigo a continuación. 
+
+    nyquist = 0.5 * fs
+    order = 5
+    
+    lowcut = 0.5
+    if lowcut >= nyquist:
+        print(f"Advertencia: Frecuencia de corte Pasa-Altos ({lowcut} Hz) ≥ Nyquist ({nyquist} Hz).")
+        ecg_filtered_hp = voltaje
+    else:
+        low = lowcut / nyquist
+        b_hp, a_hp = butter(order, low, btype='highpass')
+        ecg_filtered_hp = filtfilt(b_hp, a_hp, voltaje)
+        print(f"Aplicado Filtro Pasa-Altos de {lowcut} Hz")
+    
+    highcut = 40.0
+    if highcut >= nyquist:
+        print(f"Advertencia: Frecuencia de corte Pasa-Bajas ({highcut} Hz) ≥ Nyquist ({nyquist} Hz). Ajustando.")
+        highcut = nyquist * 0.99
+    
+    high = highcut / nyquist
+    b_lp, a_lp = butter(order, high, btype='lowpass')
+    ecg_filtered = filtfilt(b_lp, a_lp, ecg_filtered_hp)
+    print(f"Aplicado Filtro Pasa-Bajos de {highcut:.2f} Hz")
+
 ![alt](ECG_Filtrada.png)
 ![alt](ECG_Picos.png)
 ![alt](IntervalosRR.png)
