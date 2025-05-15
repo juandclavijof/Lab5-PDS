@@ -150,9 +150,33 @@ Para poder identificar los picos R los cuales representan los máximos de la des
 ![alt](ECG_Picos.png)
 Figura 4. Señal ECG con los picos detectados
 
-Posteriormente 
+Posteriormente, se realizan los intervalos RR y se hacen conversiones de estos picos a tiempo para calcular los tiempos de duchos intervalos para poder llegar a una conclusión de ritmos cardiacos. Esto se hace por medio de las siguientes lineas de codigo y su grafica resultante es mostrada en la figura 5.
+
+    if len(peaks_indices) > 1:
+        rr_intervals_samples = np.diff(peaks_indices)
+        rr_intervals_sec = rr_intervals_samples / fs
+        rr_times_sec = tiempo[peaks_indices[1:]]
+    
+        if len(rr_intervals_sec) > 1:
+            plt.figure(figsize=(12, 5))
+            plt.plot(rr_times_sec, rr_intervals_sec * 1000, marker='o', linestyle='-', label='Intervalos R-R')
+            plt.title('Serie de Intervalos R-R ')
+            plt.xlabel('Tiempo (s)')
+            plt.ylabel('Intervalo R-R (ms)')
+            plt.grid(True)
+            plt.show()
+    
+        mean_rr = np.mean(rr_intervals_sec)
+        sdnn = np.std(rr_intervals_sec)
+    
+        print(f"Intervalo R-R Promedio : {mean_rr * 1000:.2f} ms")
+        print(f"Desviación Estándar de Intervalos RR : {sdnn * 1000:.2f} ms")
+
+        //Resultados de dichos calculos en el command window
+        Intervalo R-R Promedio : 807.34 ms
+        Desviación Estándar de Intervalos RR : 196.54 ms
+
 ![alt](IntervalosRR.png)
-![alt](Interpolada.png)
 
 
 ### d) Análisis de la HRV en el dominio del tiempo 
