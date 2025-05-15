@@ -48,7 +48,7 @@ La transformada wavelet es una herramienta matemática para analizar señales no
 Aplicación en HRV:   
 - Permite analizar cómo cambian las componentes de baja frecuencia y alta frecuencia a lo largo del tiempo.   
 - Detecta transiciones entre estados simpático/parasimpático.   
-5. Diagrama de Flujo del Experimento**   
+5. Diagrama de Flujo del Experimento  
 ![alt](DiagramaDeFlujo.png)
 
 
