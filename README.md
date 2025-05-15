@@ -3,6 +3,11 @@
 ## Descripción
 
 ## Desarrollo
+### a) Fundamento Teórico
+### b) Adquisición de la señal ECG  
+### c) Pre-procesamiento de la señal 
+### d) Análisis de la HRV en el dominio del tiempo 
+### e) Aplicación de transformada Wavelet
 
 ## Instrucciones
 
